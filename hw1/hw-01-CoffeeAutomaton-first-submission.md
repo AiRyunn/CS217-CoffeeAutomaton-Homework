@@ -18,9 +18,9 @@ monofont: "Ubuntu Mono"
 output:
     custom_document:
         latex_engine: xelatex
-        template: /home/espylapiza/Documents/Templates/homework.latex
+        template: ../templates/homework.latex
         highlight: tango
-        path: "hw-1-CoffeeAutomaton-first-submission.pdf"
+        path: "hw-01-CoffeeAutomaton-first-submission.pdf"
 ---
 
 @import "homework.less"
