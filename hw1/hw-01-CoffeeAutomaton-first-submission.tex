@@ -1,0 +1,569 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+
+
+\documentclass[
+]{article}
+
+%\usepackage{tcolorbox}
+%\newtcolorbox{myquote}{colback=red!5!white, colframe=red!75!black}
+%\newtcolorbox{myShaded}{colback=red!5!white, colframe=red!75!black}
+% redefine the 'quote' environment to use this 'myquote' environment
+%\renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+%\newenvironment{Highlighting}{\begin{myquote}}{\end{myquote}}
+
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage{mathpazo} % Palatino-like math fonts
+
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+
+% Load mathpazo as a math font
+\usepackage{mathpazo}
+
+% Load Pagella as a text font by specifying no-math to fontspec
+%\usepackage[no-math]{fontspec}
+%\setmainfont[Numbers=Proportional]{TeX Gyre Pagella}
+
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[Numbers = Proportional]{TeX Gyre Pagella}
+  \setmonofont[]{Ubuntu Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Homework \#1},
+  pdfauthor={Coffee Automaton},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin = 1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+% text wrapping
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\renewenvironment{verbatim}{\begin{Shaded}}{\end{Shaded}}
+
+
+\title{
+  \vspace{2in}
+  \textmd{\textbf{Homework \#1}}
+  \normalsize\vspace{0.1in}\\
+  \textmd{\textbf{CS 217 @ SJTU}}
+  \normalsize\vspace{0.1in}\\
+}
+
+\author{Coffee Automaton}
+\date{}
+
+\begin{document}
+
+\noindent
+\large\textbf{Homework \#1}
+\hfill
+\textbf{Coffee Automaton} \\
+\normalsize {\bf CS 217 @ SJTU} \hfill ACM Class, Zhiyuan College, SJTU\\
+Prof.~{\bf Dominik Scheder} \hfill Due Date: September 23, 2019\\
+  TA.~{\bf Tang Shuyang}
+\hfill Submit Date: \today
+
+
+\hypertarget{exercise-1}{%
+\section{Exercise 1}\label{exercise-1}}
+
+The integer division algorithm in school method is implemented in
+\emph{\protect\hyperlink{appendix-1-euclidean-algorithm}{App.1}}.
+
+The core code for integer division is as follows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{carry }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_lhs }\OperatorTok{-}\NormalTok{ len_rhs, }\DecValTok{-1}\NormalTok{, }\DecValTok{-1}\NormalTok{):  }\CommentTok{# O(n - k)}
+\NormalTok{    ok }\OperatorTok{=} \VariableTok{True}
+    \ControlFlowTok{if}\NormalTok{ carry }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_rhs }\OperatorTok{-} \DecValTok{1}\NormalTok{, }\DecValTok{-1}\NormalTok{, }\DecValTok{-1}\NormalTok{):  }\CommentTok{# O(k)}
+            \ControlFlowTok{if}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{>}\NormalTok{ rhs.b[j]:}
+\NormalTok{                ok }\OperatorTok{=} \VariableTok{True}
+                \ControlFlowTok{break}
+            \ControlFlowTok{elif}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{<}\NormalTok{ rhs.b[j]:}
+\NormalTok{                ok }\OperatorTok{=} \VariableTok{False}
+                \ControlFlowTok{break}
+  
+    \ControlFlowTok{if}\NormalTok{ ok:}
+\NormalTok{        res_div.b[i] }\OperatorTok{=} \DecValTok{1}
+        \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, len_rhs):  }\CommentTok{# O(k)}
+\NormalTok{            res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{-=}\NormalTok{ rhs.b[j]}
+            \ControlFlowTok{if}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{<} \DecValTok{0}\NormalTok{:}
+\NormalTok{                res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{+=} \DecValTok{2}
+\NormalTok{                res_rem.b[i }\OperatorTok{+}\NormalTok{ j }\OperatorTok{+} \DecValTok{1}\NormalTok{] }\OperatorTok{-=} \DecValTok{1}
+    \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{        res_div.b[i] }\OperatorTok{=} \DecValTok{0}
+\NormalTok{    carry }\OperatorTok{=}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ len_rhs }\OperatorTok{-} \DecValTok{1}\NormalTok{]}
+  
+\end{Highlighting}
+\end{Shaded}
+
+The outer loop runs \(n-k\) times, and the inner loop runs \(k\) times.
+Inside the loop body are bit operations. So the total algorithm runs in
+\(O(k(n−k))\) operations.
+
+\hypertarget{exercise-2}{%
+\section{Exercise 2}\label{exercise-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ euclid(a, b):}
+    \ControlFlowTok{while}\NormalTok{ b }\OperatorTok{>} \DecValTok{0}\NormalTok{:}
+\NormalTok{        r }\OperatorTok{=}\NormalTok{ a }\OperatorTok{%}\NormalTok{ b }\CommentTok{# so a = bu + r}
+        \ControlFlowTok{if}\NormalTok{ r }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+            \ControlFlowTok{return}\NormalTok{ b}
+\NormalTok{        s }\OperatorTok{=}\NormalTok{ b }\OperatorTok{%}\NormalTok{ r }\CommentTok{# so b = rv + s}
+\NormalTok{        a }\OperatorTok{=}\NormalTok{ r}
+\NormalTok{        b }\OperatorTok{=}\NormalTok{ s}
+    \ControlFlowTok{return}\NormalTok{ a}
+  
+\end{Highlighting}
+\end{Shaded}
+
+It is obvious that \(r\le\lfloor\frac{a}{2}\rfloor\) and
+\(s\le\lfloor\frac{b}{2}\rfloor\), so every cycle \(a\) and \(b\) become
+at most half of the previous value they have.
+
+Suppose \(a\ge b\), and let \(n\) and \(m\) denote the number of bits of
+\(a\) and \(b\), we have \(n\ge m\).
+
+Since the integer division makes \(O(m(n-m))\) bit operations.
+
+The \(\gcd(a,b)\) makes
+
+\[O(m(n-m)+\frac{1}{2^2}m(n-m)+\frac{1}{2^4}m(n-m)+\cdots)=O(m(n-m))=O(n^2)\]
+
+operations.
+
+\hypertarget{exercise-3}{%
+\section{Exercise 3}\label{exercise-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ combination_rec(n, k):}
+    \ControlFlowTok{if}\NormalTok{ k }\OperatorTok{<} \DecValTok{0} \KeywordTok{or}\NormalTok{ k }\OperatorTok{>}\NormalTok{ n:}
+        \ControlFlowTok{return} \DecValTok{0}
+    \ControlFlowTok{elif}\NormalTok{ n }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{1}
+  
+    \ControlFlowTok{return}\NormalTok{ combination_rec(n }\OperatorTok{-} \DecValTok{1}\NormalTok{, k) }\OperatorTok{+}\NormalTok{ combination_rec(n }\OperatorTok{-} \DecValTok{1}\NormalTok{, k }\OperatorTok{-} \DecValTok{1}\NormalTok{)}
+  
+  
+\BuiltInTok{print}\NormalTok{(combination_rec(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+The algorithm recurses \(O(nC_n^k)\) times, and the time complexity of
+bitwise addition is \(O({\log_2 2^n})=O(n)\).
+
+So the running time of the algorithm is \(O(n^2C_n^k)\).
+
+It is not an efficient algorithm, because the time complexity of the
+algorithm is exponential.
+
+\hypertarget{exercise-4}{%
+\section{Exercise 4}\label{exercise-4}}
+
+The dynamic programming algorithm is implemented as follows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ combination_dp(n, k):}
+    \ControlFlowTok{if}\NormalTok{ k }\OperatorTok{<} \DecValTok{0} \KeywordTok{or}\NormalTok{ k }\OperatorTok{>}\NormalTok{ n:}
+        \ControlFlowTok{return} \DecValTok{0}
+    \ControlFlowTok{elif}\NormalTok{ n }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{1}
+  
+    \CommentTok{"""}
+\CommentTok{    C = [0] * (k + 1)}
+\CommentTok{    for i in range(n + 1):}
+\CommentTok{        C[0] = 1}
+\CommentTok{        for j in range(min(i, k), 0, -1):}
+\CommentTok{            C[j] = C[j] + C[j - 1]}
+\CommentTok{    return C[k]}
+\CommentTok{    """}
+\NormalTok{    C }\OperatorTok{=}\NormalTok{ [}\VariableTok{None}\NormalTok{] }\OperatorTok{*}\NormalTok{ (n }\OperatorTok{+} \DecValTok{1}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+\NormalTok{        C[i] }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*}\NormalTok{ (k }\OperatorTok{+} \DecValTok{1}\NormalTok{)}
+\NormalTok{        C[i][}\DecValTok{0}\NormalTok{] }\OperatorTok{=} \DecValTok{1}
+        \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, }\BuiltInTok{min}\NormalTok{(i }\OperatorTok{+} \DecValTok{1}\NormalTok{, k }\OperatorTok{+} \DecValTok{1}\NormalTok{)):}
+\NormalTok{            C[i][j] }\OperatorTok{=}\NormalTok{ C[i }\OperatorTok{-} \DecValTok{1}\NormalTok{][j] }\OperatorTok{+}\NormalTok{ C[i }\OperatorTok{-} \DecValTok{1}\NormalTok{][j }\OperatorTok{-} \DecValTok{1}\NormalTok{]}
+    \ControlFlowTok{return}\NormalTok{ C[n][k]}
+  
+  
+\BuiltInTok{print}\NormalTok{(combination_dp(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+The outer loop runs \(n\) times, and the inner loop runs \(k\) times.
+And the time complexity of bitwise addition is \(O({\log_2 2^n})=O(n)\).
+So the running time of the program is \(O(n^2k)\).
+
+It is an efficient algorithm, because the time complexity of the
+algorithm is polynomial.
+
+\hypertarget{exercise-5}{%
+\section{Exercise 5}\label{exercise-5}}
+
+The dynamic programming algorithm is implemented as follows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ combination_dp_mod_2(n, k):}
+    \ControlFlowTok{if}\NormalTok{ k }\OperatorTok{<} \DecValTok{0} \KeywordTok{or}\NormalTok{ k }\OperatorTok{>}\NormalTok{ n:}
+        \ControlFlowTok{return} \DecValTok{0}
+    \ControlFlowTok{elif}\NormalTok{ n }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{1}
+  
+    \CommentTok{"""}
+\CommentTok{    C = [0] * (k + 1)}
+\CommentTok{    for i in range(n + 1):}
+\CommentTok{        C[0] = 1}
+\CommentTok{        for j in range(min(i, k), 0, -1):}
+\CommentTok{            C[j] = (C[j] + C[j - 1]) % 2}
+\CommentTok{    return C[k]}
+\CommentTok{    """}
+\NormalTok{    C }\OperatorTok{=}\NormalTok{ [}\VariableTok{None}\NormalTok{] }\OperatorTok{*}\NormalTok{ (n }\OperatorTok{+} \DecValTok{1}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+\NormalTok{        C[i] }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*}\NormalTok{ (k }\OperatorTok{+} \DecValTok{1}\NormalTok{)}
+\NormalTok{        C[i][}\DecValTok{0}\NormalTok{] }\OperatorTok{=} \DecValTok{1}
+        \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{, }\BuiltInTok{min}\NormalTok{(i }\OperatorTok{+} \DecValTok{1}\NormalTok{, k }\OperatorTok{+} \DecValTok{1}\NormalTok{)):}
+\NormalTok{            C[i][j] }\OperatorTok{=}\NormalTok{ (C[i }\OperatorTok{-} \DecValTok{1}\NormalTok{][j] }\OperatorTok{+}\NormalTok{ C[i }\OperatorTok{-} \DecValTok{1}\NormalTok{][j }\OperatorTok{-} \DecValTok{1}\NormalTok{]) }\OperatorTok{%} \DecValTok{2}
+    \ControlFlowTok{return}\NormalTok{ C[n][k]}
+  
+  
+\BuiltInTok{print}\NormalTok{(combination_dp_mod_2(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+The outer loop runs \(n\) times, and the inner loop runs \(k\) times.
+And the time complexity of bitwise addition modulo 2 is \(O(1)\). So the
+running time of the program is \(O(nk)\).
+
+It is an efficient algorithm, because the time complexity of the
+algorithm is polynomial.
+
+\hypertarget{exercise-6}{%
+\section{Exercise 6}\label{exercise-6}}
+
+A lasso cannot happen.
+
+If we had some \(1\le i<j\) such that \(F'_i=F'_j\) and
+\(F'_{i+1}=F'_{j+1}\), we would have
+\(F'_{i-1}\equiv F'_{i+1}-F'_i\equiv F'_{j+1}-F'_j\equiv F'_{j-1}\pmod k\)
+and \(F'_i=F'_j\), so \(i-1\) also satisfies the condition. Therefore,
+the smallest \(i\) must be \(0\), and form a circle.
+
+Here's the code for finding a fibonacci period:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ fibonacci_period_mod_k(k):}
+\NormalTok{    period }\OperatorTok{=} \DecValTok{0}
+\NormalTok{    f0, f1 }\OperatorTok{=} \DecValTok{0}\NormalTok{, }\DecValTok{1} \OperatorTok{%}\NormalTok{ k}
+  
+    \ControlFlowTok{while} \VariableTok{True}\NormalTok{:}
+\NormalTok{        period }\OperatorTok{+=} \DecValTok{1}
+\NormalTok{        f0, f1 }\OperatorTok{=}\NormalTok{ f1, (f0 }\OperatorTok{+}\NormalTok{ f1) }\OperatorTok{%}\NormalTok{ k}
+  
+        \ControlFlowTok{if}\NormalTok{ (f0, f1) }\OperatorTok{==}\NormalTok{ (}\DecValTok{0}\NormalTok{, }\DecValTok{1} \OperatorTok{%}\NormalTok{ k):}
+            \ControlFlowTok{break}
+  
+    \ControlFlowTok{return}\NormalTok{ period}
+  
+  
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"period = }\SpecialCharTok{\{}\NormalTok{fibonacci_period_mod_k(}\DecValTok{3}\NormalTok{)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{period = 8}
+\end{Highlighting}
+\end{Shaded}
+
+\pagebreak
+
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+\hypertarget{appendix-1-euclidean-algorithm}{%
+\subsection{Appendix 1. Euclidean
+algorithm}\label{appendix-1-euclidean-algorithm}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ bit_len(n):}
+    \CommentTok{"""}
+\CommentTok{    Return bit length of n.}
+\CommentTok{    Time complexity: O(|n|)}
+\CommentTok{    """}
+\NormalTok{    result }\OperatorTok{=} \DecValTok{0}
+    \ControlFlowTok{while}\NormalTok{ n }\OperatorTok{>} \DecValTok{0}\NormalTok{:}
+\NormalTok{        n }\OperatorTok{>>=} \DecValTok{1}
+\NormalTok{        result }\OperatorTok{+=} \DecValTok{1}
+  
+    \ControlFlowTok{return}\NormalTok{ result}
+  
+  
+\KeywordTok{class}\NormalTok{ Binary:}
+    \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, value}\OperatorTok{=}\VariableTok{None}\NormalTok{):}
+        \ControlFlowTok{if} \BuiltInTok{isinstance}\NormalTok{(value, }\BuiltInTok{int}\NormalTok{):}
+\NormalTok{            n_bits }\OperatorTok{=}\NormalTok{ bit_len(value)}
+            \VariableTok{self}\NormalTok{.b }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*}\NormalTok{ n_bits}
+            \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n_bits):}
+                \VariableTok{self}\NormalTok{.b[i] }\OperatorTok{=}\NormalTok{ value }\OperatorTok{%} \DecValTok{2}
+\NormalTok{                value }\OperatorTok{//=} \DecValTok{2}
+        \ControlFlowTok{elif} \BuiltInTok{isinstance}\NormalTok{(value, }\BuiltInTok{list}\NormalTok{):}
+            \VariableTok{self}\NormalTok{.b }\OperatorTok{=}\NormalTok{ value}
+  
+    \KeywordTok{def} \FunctionTok{__str__}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+\NormalTok{        integer }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{for}\NormalTok{ num }\KeywordTok{in} \VariableTok{self}\NormalTok{.b[::}\OperatorTok{-}\DecValTok{1}\NormalTok{]:}
+\NormalTok{            integer }\OperatorTok{=}\NormalTok{ integer }\OperatorTok{<<} \DecValTok{1} \OperatorTok{|}\NormalTok{ num}
+        \ControlFlowTok{return} \BuiltInTok{str}\NormalTok{(integer)}
+  
+    \KeywordTok{def}\NormalTok{ copy(}\VariableTok{self}\NormalTok{):}
+\NormalTok{        result }\OperatorTok{=}\NormalTok{ Binary()}
+\NormalTok{        result.b }\OperatorTok{=} \VariableTok{self}\NormalTok{.b.copy()}
+        \ControlFlowTok{return}\NormalTok{ result}
+  
+    \KeywordTok{def} \BuiltInTok{len}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return} \BuiltInTok{len}\NormalTok{(}\VariableTok{self}\NormalTok{.b)}
+  
+    \KeywordTok{def}\NormalTok{ add(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+\NormalTok{        len_lhs, len_rhs }\OperatorTok{=} \VariableTok{self}\NormalTok{.}\BuiltInTok{len}\NormalTok{(), rhs.}\BuiltInTok{len}\NormalTok{()}
+  
+\NormalTok{        result }\OperatorTok{=}\NormalTok{ []}
+  
+\NormalTok{        carry }\OperatorTok{=} \DecValTok{0}
+  
+        \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{max}\NormalTok{(len_lhs, len_rhs)):}
+\NormalTok{            s }\OperatorTok{=} \DecValTok{0}
+            \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{<}\NormalTok{ len_lhs:}
+\NormalTok{                s }\OperatorTok{+=} \VariableTok{self}\NormalTok{.b[i]}
+            \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{<}\NormalTok{ len_rhs:}
+\NormalTok{                s }\OperatorTok{+=}\NormalTok{ rhs.b[i]}
+\NormalTok{            result.append(s }\OperatorTok{+}\NormalTok{ carry)}
+  
+            \ControlFlowTok{if}\NormalTok{ result[}\OperatorTok{-}\DecValTok{1}\NormalTok{] }\OperatorTok{<} \DecValTok{2}\NormalTok{:}
+\NormalTok{                carry }\OperatorTok{=} \DecValTok{0}
+            \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{                carry }\OperatorTok{=} \DecValTok{1}
+\NormalTok{                result[}\OperatorTok{-}\DecValTok{1}\NormalTok{] }\OperatorTok{-=} \DecValTok{2}
+  
+        \ControlFlowTok{if}\NormalTok{ carry }\OperatorTok{>} \DecValTok{0}\NormalTok{:}
+\NormalTok{            result.append(carry)}
+  
+        \ControlFlowTok{return}\NormalTok{ Binary(result)}
+  
+    \KeywordTok{def}\NormalTok{ _div_rem(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+\NormalTok{        len_lhs, len_rhs }\OperatorTok{=} \VariableTok{self}\NormalTok{.}\BuiltInTok{len}\NormalTok{(), rhs.}\BuiltInTok{len}\NormalTok{()}
+  
+\NormalTok{        res_div, res_rem }\OperatorTok{=}\NormalTok{ Binary(}\DecValTok{0}\NormalTok{), }\VariableTok{self}\NormalTok{.copy()}
+  
+\NormalTok{        res_div.b }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*}\NormalTok{ (len_lhs }\OperatorTok{-}\NormalTok{ len_rhs }\OperatorTok{+} \DecValTok{1}\NormalTok{)}
+  
+\NormalTok{        carry }\OperatorTok{=} \DecValTok{0}
+        \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_lhs }\OperatorTok{-}\NormalTok{ len_rhs, }\DecValTok{-1}\NormalTok{, }\DecValTok{-1}\NormalTok{):  }\CommentTok{# O(n - k)}
+\NormalTok{            ok }\OperatorTok{=} \VariableTok{True}
+            \ControlFlowTok{if}\NormalTok{ carry }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+                \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_rhs }\OperatorTok{-} \DecValTok{1}\NormalTok{, }\DecValTok{-1}\NormalTok{, }\DecValTok{-1}\NormalTok{):  }\CommentTok{# O(k)}
+                    \ControlFlowTok{if}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{>}\NormalTok{ rhs.b[j]:}
+\NormalTok{                        ok }\OperatorTok{=} \VariableTok{True}
+                        \ControlFlowTok{break}
+                    \ControlFlowTok{elif}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{<}\NormalTok{ rhs.b[j]:}
+\NormalTok{                        ok }\OperatorTok{=} \VariableTok{False}
+                        \ControlFlowTok{break}
+  
+            \ControlFlowTok{if}\NormalTok{ ok:}
+\NormalTok{                res_div.b[i] }\OperatorTok{=} \DecValTok{1}
+                \ControlFlowTok{for}\NormalTok{ j }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, len_rhs):  }\CommentTok{# O(k)}
+\NormalTok{                    res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{-=}\NormalTok{ rhs.b[j]}
+                    \ControlFlowTok{if}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{<} \DecValTok{0}\NormalTok{:}
+\NormalTok{                        res_rem.b[i }\OperatorTok{+}\NormalTok{ j] }\OperatorTok{+=} \DecValTok{2}
+\NormalTok{                        res_rem.b[i }\OperatorTok{+}\NormalTok{ j }\OperatorTok{+} \DecValTok{1}\NormalTok{] }\OperatorTok{-=} \DecValTok{1}
+            \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{                res_div.b[i] }\OperatorTok{=} \DecValTok{0}
+\NormalTok{            carry }\OperatorTok{=}\NormalTok{ res_rem.b[i }\OperatorTok{+}\NormalTok{ len_rhs }\OperatorTok{-} \DecValTok{1}\NormalTok{]}
+  
+        \ControlFlowTok{while}\NormalTok{ res_div.b }\KeywordTok{and}\NormalTok{ res_div.b[}\OperatorTok{-}\DecValTok{1}\NormalTok{] }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+\NormalTok{            res_div.b.pop()}
+  
+        \ControlFlowTok{while}\NormalTok{ res_rem.b }\KeywordTok{and}\NormalTok{ res_rem.b[}\OperatorTok{-}\DecValTok{1}\NormalTok{] }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+\NormalTok{            res_rem.b.pop()}
+  
+        \ControlFlowTok{return}\NormalTok{ res_div, res_rem}
+  
+    \KeywordTok{def}\NormalTok{ div(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+        \ControlFlowTok{return} \VariableTok{self}\NormalTok{._div_rem(rhs)[}\DecValTok{0}\NormalTok{]}
+  
+    \KeywordTok{def}\NormalTok{ rem(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+        \ControlFlowTok{return} \VariableTok{self}\NormalTok{._div_rem(rhs)[}\DecValTok{1}\NormalTok{]}
+  
+    \KeywordTok{def}\NormalTok{ greaterthan(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+\NormalTok{        len_lhs, len_rhs }\OperatorTok{=} \VariableTok{self}\NormalTok{.}\BuiltInTok{len}\NormalTok{(), rhs.}\BuiltInTok{len}\NormalTok{()}
+  
+        \ControlFlowTok{if}\NormalTok{ len_lhs }\OperatorTok{!=}\NormalTok{ len_rhs:}
+            \ControlFlowTok{return}\NormalTok{ len_lhs }\OperatorTok{>}\NormalTok{ len_rhs}
+  
+        \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_rhs }\OperatorTok{-} \DecValTok{1}\NormalTok{, }\DecValTok{-1}\NormalTok{, }\DecValTok{-1}\NormalTok{):}
+            \ControlFlowTok{if} \VariableTok{self}\NormalTok{.b[i] }\OperatorTok{!=}\NormalTok{ rhs.b[i]:}
+                \ControlFlowTok{return} \VariableTok{self}\NormalTok{.b[i] }\OperatorTok{>}\NormalTok{ rhs.b[i]}
+  
+        \ControlFlowTok{return} \VariableTok{False}
+  
+    \KeywordTok{def}\NormalTok{ equals(}\VariableTok{self}\NormalTok{, rhs):}
+        \ControlFlowTok{if} \KeywordTok{not} \BuiltInTok{isinstance}\NormalTok{(rhs, Binary):}
+            \ControlFlowTok{raise} \PreprocessorTok{TypeError}\NormalTok{(}\StringTok{"rhs is not Binary"}\NormalTok{)}
+  
+\NormalTok{        len_lhs, len_rhs }\OperatorTok{=} \VariableTok{self}\NormalTok{.}\BuiltInTok{len}\NormalTok{(), rhs.}\BuiltInTok{len}\NormalTok{()}
+  
+        \ControlFlowTok{if}\NormalTok{ len_lhs }\OperatorTok{!=}\NormalTok{ len_rhs:}
+            \ControlFlowTok{return} \VariableTok{False}
+  
+        \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(len_rhs):}
+            \ControlFlowTok{if} \VariableTok{self}\NormalTok{.b[i] }\OperatorTok{!=}\NormalTok{ rhs.b[i]:}
+                \ControlFlowTok{return} \VariableTok{False}
+  
+        \ControlFlowTok{return} \VariableTok{True}
+  
+  
+\KeywordTok{def}\NormalTok{ euclid(a, b):}
+\NormalTok{    a, b }\OperatorTok{=}\NormalTok{ Binary(a), Binary(b)}
+    \ControlFlowTok{while}\NormalTok{ b.greaterthan(Binary(}\DecValTok{0}\NormalTok{)):}
+\NormalTok{        r }\OperatorTok{=}\NormalTok{ a.rem(b)  }\CommentTok{# so a = bu + r}
+        \ControlFlowTok{if}\NormalTok{ r.equals(Binary(}\DecValTok{0}\NormalTok{)):}
+            \ControlFlowTok{return}\NormalTok{ b}
+\NormalTok{        s }\OperatorTok{=}\NormalTok{ b.rem(r)  }\CommentTok{# so b = rv + s}
+\NormalTok{        a }\OperatorTok{=}\NormalTok{ r}
+\NormalTok{        b }\OperatorTok{=}\NormalTok{ s}
+    \ControlFlowTok{return}\NormalTok{ a}
+  
+  
+\BuiltInTok{print}\NormalTok{(euclid(}\DecValTok{12}\NormalTok{, }\DecValTok{8}\NormalTok{))}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{4}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}

@@ -2,11 +2,11 @@
 id: homework
 
 title: "Homework #1"
-author: "Coffee Automaton"
+author: Coffee Automaton
 affiliation: ACM Class, Zhiyuan College, SJTU
 course: CS 217 @ SJTU
 prof: Dominik Scheder
-TA: "Tang Shuyang"
+TA: Tang Shuyang
 dueDate: September 23, 2019
 
 geometry: margin = 1in
@@ -20,7 +20,7 @@ output:
         latex_engine: xelatex
         template: ../templates/homework.latex
         highlight: tango
-        path: "hw-01-CoffeeAutomaton-first-submission.pdf"
+        path: "hw-01-CoffeeAutomaton-first-submission.tex"
 ---
 
 @import "homework.less"
