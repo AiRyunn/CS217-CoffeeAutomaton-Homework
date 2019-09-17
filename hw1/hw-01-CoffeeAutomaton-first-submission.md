@@ -89,7 +89,7 @@ The dynamic programming algorithm is implemented as follows.
 10
 ```
 
-The outer loop runs $n$ times, and the inner loop runs $k$ times. And the time complexity of bitwise addition modulo 2 is $O(1)$. So the running time of the program is $O(nk)$.
+The outer loop runs $n$ times, and the inner loop runs $k$ times. And the time complexity of bitwise addition modulo $2$ is $O(1)$. So the running time of the program is $O(nk)$.
 
 It is an efficient algorithm, because the time complexity of the algorithm is polynomial.
 
@@ -98,6 +98,7 @@ It is an efficient algorithm, because the time complexity of the algorithm is po
 A lasso cannot happen.
 
 If we had some $1\le i<j$ such that $F'_i=F'_j$ and $F'_{i+1}=F'_{j+1}$, we would have $F'_{i-1}\equiv F'_{i+1}-F'_i\equiv F'_{j+1}-F'_j\equiv F'_{j-1}\pmod k$ and $F'_i=F'_j$, so $i-1$ also satisfies the condition.
+
 Therefore, the smallest $i$ must be $0$, and form a circle.
 
 Here's the code for finding a fibonacci period:
