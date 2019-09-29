@@ -1,4 +1,5 @@
 *.log
 *.aux
 *.fls
+*.tmp
 assets/
