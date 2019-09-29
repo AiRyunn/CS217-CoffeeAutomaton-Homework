@@ -41,7 +41,7 @@ Considering the Kruskal's algorithm, all MSTs have $n-1$ edges, and have same nu
 
 # Exercise 3
 
-Considering the Kruskal's algorithm, each time we chooose edges of fixed weight and loop $n-1$ times. Since no two of edges have the same weight, what we choose is deterministic and unique. Therefore, there is exactly one MST.
+Considering the Kruskal's algorithm, each time we choose edges of fixed weight and loop $n-1$ times. Since no two of edges have the same weight, what we choose is deterministic and unique. Therefore, there is exactly one MST.
 
 # Exercise 4
 
