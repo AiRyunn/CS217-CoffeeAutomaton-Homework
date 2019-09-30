@@ -150,7 +150,7 @@ By symmetry, we have $f(n,k)=f(n,\lfloor n-k+1\rfloor)$
 $$\begin{align}
 f(n,k)&=\sum_{i=k+1}^{n}g(i,k)+f(k,k)\\
 \because f(k,k)&=f(k,1)=2k-\sum_{i=1}^{k}\frac{1}{i}\\
-f(n,k)&=2n-\sum_{i=1}^{k}\frac{1}{i}-\frac{i=2}{n-k+1}\frac{1}{i}\\
+f(n,k)&=2n-\sum_{i=1}^{k}\frac{1}{i}-\sum_{i=2}^{n-k+1}\frac{1}{i}\\
 &=2n-H_{k}-H_{n-k+1}+1\\
 &=\mathbf{E}_{\pi}[C(\pi,k)]
 \end{align}$$
