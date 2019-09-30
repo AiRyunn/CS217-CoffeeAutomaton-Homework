@@ -7,7 +7,7 @@ affiliation: ACM Class, Zhiyuan College, SJTU
 course: CS 217 @ SJTU
 prof: Dominik Scheder
 TA: Tang Shuyang
-dueDate: September 29, 2019
+dueDate: October 7, 2019
 
 geometry: margin = 1in
 mainfont: TeX Gyre Pagella
@@ -20,7 +20,7 @@ output:
         latex_engine: xelatex
         template: ../templates/homework.latex
         highlight: tango
-        path: "hw-02-CoffeeAutomaton-first-submission.tex"
+        path: "hw-02-CoffeeAutomaton-final-submission.tex"
 ---
 
 @import "homework.less"
@@ -39,7 +39,7 @@ Fetch $2$ items each time, compare them, compare the smaller item and the minimu
 
 The algorithm shows below.
 
-@import "2.2.py"
+@import "2.ex.2.py"
 
 The algorithm all use $1+(\frac{n-2}{2})\times 3=\frac{3n}{2}-2$ comparisons.
 
@@ -51,7 +51,7 @@ Then find the items those were compared with the "max", compare them with "secon
 
 The algorithm shows below.
 
-@import "2.3.py"
+@import "2.ex.3.py"
 
 It all uses $\frac{n}{2}+\frac{n}{4}+\cdots+2+1+(k-1)=n+k-2=n+\log_2(n)-2$ comparisons.
 
@@ -67,15 +67,15 @@ S&=\mathbf{E}[\sum_{i\neq j} A_{i,j}]\\
 
 Now considering the summation,as matrix (1) shows, the summation of the matrix equals the summation.
 
-$$\begin{align}
+$$\begin{aligned}
 \begin{pmatrix}
-1&\dfrac{1}{2}&\dfrac{1}{3}&\cdots& &\dfrac{1}{n}\\
-\dfrac{1}{2}&1&\dfrac{1}{2}&\cdots&&\dfrac{1}{n-1}\\\cdots
+1&\cfrac{1}{2}&\cfrac{1}{3}&\cdots& &\cfrac{1}{n}\\
+\cfrac{1}{2}&1&\cfrac{1}{2}&\cdots&&\cfrac{1}{n-1}\\\cdots
 & &...\\
-\dfrac{1}{n-1}&\dfrac{1}{n-2}& &\cdots&1&\dfrac{1}{2}\\
-\dfrac{1}{n}&1&\dfrac{1}{n-1}&\cdots&\dfrac{1}{2}&1\\
+\cfrac{1}{n-1}&\cfrac{1}{n-2}& &\cdots&1&\cfrac{1}{2}\\
+\cfrac{1}{n}&1&\cfrac{1}{n-1}&\cdots&\cfrac{1}{2}&1\\
 \end{pmatrix}
-\end{align}$$
+\end{aligned}$$
 
 Using the Harmonic number $H_{n}=1+\frac{1}{2}+\cdots+\frac{1}{n}$
 
@@ -99,7 +99,7 @@ However, quickselect only concern one of the two parts, and omit the other, whil
 
 The example quicksort tree to find $4$ shows in Figure 1, and the red part is visited by quickselect.
 
-![Figure 1: The quicksort tree in Exercise 5](1.png)
+![The quicksort tree in Exercise 5](1.png){width=50%}
 
 # Exercise 6
 
@@ -137,23 +137,23 @@ g(n+1,k+1)&=g(n,k)\\
 
 When $k=1$, we have
 
-$$\begin{align}
+$$\begin{aligned}
 ng(n,k)&=\sum_{i=1}^{k-1}g(n-i,k-i)+2n-1\\
 &=2n-1\\
 g(n,1)&=2-\frac{1}{n}\\
 f(n,1)&=2n-\sum_{i=1}^{n}\frac{1}{i}\\
 \therefore g(n,k)&=2-\frac{1}{n-k+1}
-\end{align}$$
+\end{aligned}$$
 
-By symmetry, we have $f(n,k)=f(n,\lfloor n-k+1\rfloor)$
+By symmetry, we have $f(n,k)=f(n,n-k+1)$
 
-$$\begin{align}
+$$\begin{aligned}
 f(n,k)&=\sum_{i=k+1}^{n}g(i,k)+f(k,k)\\
 \because f(k,k)&=f(k,1)=2k-\sum_{i=1}^{k}\frac{1}{i}\\
-f(n,k)&=2n-\sum_{i=1}^{k}\frac{1}{i}-\frac{i=2}{n-k+1}\frac{1}{i}\\
+f(n,k)&=2n-\sum_{i=1}^{k}\frac{1}{i}-\sum_{i=2}^{n-k+1}\frac{1}{i}\\
 &=2n-H_{k}-H_{n-k+1}+1\\
 &=\mathbf{E}_{\pi}[C(\pi,k)]
-\end{align}$$
+\end{aligned}$$
 
 Which above is the formula for $C(\pi,k)$.
 
@@ -168,47 +168,3 @@ It has been showed in exercise 7.
 $$\begin{aligned}
 \mathbf{E}_{\pi}[C(\pi,k)]&=2n-H_{k}-H_{n-k+1}+1
 \end{aligned}$$
-
-# Exercise 2
-
-The algorithm is described as follows.
-
-1. Make the array into $\frac{n}{2}$ pairs.
-
-2. Sort each of the pair (makes $\frac{n}{2}$ comparisons).
-
-3. For each of the pair, take the smaller one to the S group, and the larger one to the L group.
-
-4. Find the smallest in the S group and the largest in the L group as the answer (each makes $\frac{n}{2}-1$ comparisons).
-
-The algorithm totally makes $\frac{3}{2}n-2$ comparisons.
-
-Here's the code implemented for the algorithm.
-
-@import "2.1.py"
-
-```markdown
-array: [17, 5, 10, 2, 11, 13, 16, 7, 14, 18, 12, 3, 1, 6, 4, 15, 0, 9, 8, 19]
-min and max: (0, 19)
-3 n / 2 - 2 = 28
-number of comparisons: 28
-```
-
-# Exercise 2
-
-[solution](https://www.zhihu.com/question/33113457)
-
-# Exercise 3
-
-[solution](http://theory.stanford.edu/~tim/w11/l/qsort.pdf)
-
-# Exercise 4
-
-# Exercise 5
-
-# Exercise 6
-
-# Exercise 7
-
-
-$$\sum_{i\neq j\\i\neq k\\j\neq k}B_{i,j,k}$$

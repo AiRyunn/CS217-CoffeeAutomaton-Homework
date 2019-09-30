@@ -7,7 +7,7 @@ def exercise_2(a, n):  # a is the array, and n is the size
     else:
         max = a[0]
         min = a[1]
-    for i in range(1, n / 2):  # 3 comparisons for each cycle
+    for i in range(1, n // 2):  # 3 comparisons for each cycle
         if a[2 * i] < a[2 * i + 1]:
             l = a[2 * i]
             r = a[2 * i + 1]
