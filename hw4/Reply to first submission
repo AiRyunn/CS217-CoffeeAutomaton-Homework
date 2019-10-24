@@ -1,0 +1,15 @@
+Hi,
+
+Here is the feedback of your homework 4 of CS217.
+
+Problem 1:
+Realizing C_{u_i} is not trivial, directly applying map<> may cause a logarithmic overhead.
+
+Problem 2:
+ok
+
+Problem 3:
+ok
+
+Thanks a lot,
+Shuyang

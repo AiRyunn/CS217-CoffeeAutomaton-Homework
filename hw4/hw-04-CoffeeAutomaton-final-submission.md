@@ -22,7 +22,7 @@ output:
         latex_engine: xelatex
         template: ../templates/homework.latex
         highlight: tango
-        path: "hw-04-CoffeeAutomaton-first-submission.pdf"
+        path: "hw-04-CoffeeAutomaton-final-submission.pdf"
 ---
 
 @import "homework.less"
