@@ -26,11 +26,11 @@
 
 \textbf{Exercise 1}
 
-If there is not such a flow of value $k$, then there must be a cut S that V\\S of $c(S) < k$. Now consider where $r$ is.
+If there is not such a flow of value $k$, then there must be a cut S that V\backslash S of $c(S) < k$. Now consider where $r$ is.
 
 If $r \in S$, then S, V separates $r$ and $t$. But there is a flow from $r$ to $t$ of value k, and flow is smaller than cut, so it's a contradiction.
 
-If $r \in V\\S$ , similarly, separates $s$ and $r$ but there is a flow from $s$ to $r$ of value k, so it's a contradiction.
+If $r \in V\S$ , similarly, separates $s$ and $r$ but there is a flow from $s$ to $r$ of value k, so it's a contradiction.
 
 Hence there is a flow of value $k$.
 
@@ -44,7 +44,7 @@ First prove that not both cases occur.
 
 If there are $k$ vertex disjoint paths $p_1 , ...,  p_k$ from $s$ to $t$, $k-1$ vertices can at most cut $k-1$ paths of them and at least 1 paths left. So we can't find vertices $v_1, ...v_{k-1}$ that $G - \{v_1, ...v_{k-1}\}$ contains no $s-t$ path.
 
-If there are $k-1$ vertices $v_1, ...v_{k-1} \in V \\ \{ s,t \}$, then we at most recover $k-1$ vertex disjoint paths(but there may contain $k$ or more paths, but they must share some same vertices). So we can't find $k$ vertex disjoint paths from $s$ to $t$.
+If there are $k-1$ vertices $v_1, ...v_{k-1} \in V \backslash \{ s,t \}$, then we at most recover $k-1$ vertex disjoint paths(but there may contain $k$ or more paths, but they must share some same vertices). So we can't find $k$ vertex disjoint paths from $s$ to $t$.
 
 Then, we prove that it's impossible both cases not happen.
 
@@ -101,7 +101,7 @@ Then we have $f(u,v) = - f(v,u), f(u,v) \leqslant c(u,v)$, and $\sum f(u,v) = 1-
 
 So we get a flow $f$ with $val(f) = |L_{i}|$.
 
-Now let $S = \{ s\}$, then S, V\\S is a cut and $c(S,V\\S) = |V_1| = val(f)$, so $f$ is a maximum flow, and there is an integral maximal flow of value $L_{i}$. 
+Now let $S = \{ s\}$, then S, V\backslash S is a cut and $c(S,V\backslash S) = |V_1| = val(f)$, so $f$ is a maximum flow, and there is an integral maximal flow of value $L_{i}$. 
 
 So there is a matching in $L_{i} \cup L_{i+1}$ of size $L_{i}$.
 
@@ -115,25 +115,51 @@ $V = L_{i} \cup L_{i+1} \cup ... \cup L_{\frac{n}{2}} \cup ... \cup L_{n-i}  \cu
 
 $E = \{  (u,v) | u \in L_{i}, v \in L_{i+1} \}\cup ... \cup \{(s,u) | u \in L_{i} \} \cup \{(v,t) | v \in L_{n-i} \}$
 
-We try to prove it by Menger’s Theorem. That is, if we can't find $C^{i}_{n} - 1$ vertices that cut the G, then there must be $C^{i}_{n}$ vertex disjoint paths from $s$ to $t$.
+Think all edges from $s$ to $L_{i}$ have flow of value 1. Now consider the edges between $L_{i}$ and $L_{i+1}$, there are $n-i$ edges from $L_{i}$ to $L_{i+1}$ and $i+1$ edges from $L_{i+1}$ to $L_{i}$. So the flow is $\frac{i+1}{n-i} < 1$ in each edge. Because the arbitrariness of $i$, so all the edges from $L_{i}$ to $L_{\frac{n}{2} - 1}$. By symmetry and Menger’s Theorem, there are $C_{n}^{i}$ paths from $s$ to $t$ with no vertex shared except $s$ and $t$. And so there is $C_{n}^{i}$ paths satisfy the situation in this problem.
 
-Denote $C_{i}^{n}$ as $m_i$. First consider the $L_{\frac{n}{2}-1} - (L_{\frac{n}{2}}) - L_{\frac{n}{2}+1}$. If there is not $L_{\frac{n}{2}}$, then there is $m_{\frac{n}{2}-1}$ edges between $s$ and $L_{\frac{n}{2} - 1}$, $L_{\frac{n}{2} - 1}$ and $L_{\frac{n}{2} + 1}$, $L_{\frac{n}{2} + 1}$ and $t$. So there is $m_{\frac{n}{2}-1}$ vertex disjoint paths. If there is $L_{\frac{n}{2}}$, the $L_{\frac{n}{2} -1}$ paths covers $L_{\frac{n}{2} - 1}$ vertices, but we can at most choose $L_{\frac{n}{2} - 1} - 1$ vertices. So we can't find such vertices to get a no s-t path graph.
-
-Then we can do this induction from $\frac{n}{2}-1$ to $0$, and get the conclusion. 
 
 
 
 \textbf{Exercise 6}
 
-Because $v(G)$ is the size of a maximum matching of bipartite graph G, so there is at least $2v(G)$ vertices and $v(G) edges$, and the minimum cover size is $v(G)$, which is same as $v(G)$ parallel edges, we can choose one of two endpoints at every edge, so this graph has obviously $2^{v(G)}$ minimum vertex covers. If we add additional edges, then we add extra restrictions and we may not choose vertices optionally, and no more new covers because one of two endpoints of one edge must be chosen. So at most we have $2^{v(G)}$ minmum covers.
+Because $v(G)$ is the size of a maximum matching of bipartite graph G, so there is at least $2v(G)$ vertices and $v(G) edges$, and the minimum cover size is $v(G)$, which is same as $v(G)$ parallel edges, we can choose one of two endpoints at every edge, so this graph has obviously $2^{v(G)}$ minimum vertex covers. If we add additional edges, then we add extra restrictions and we may not choose vertices optionally, and no more new covers because one of two endpoints of one edge must be chosen. So at most we have $2^{v(G)}$ minimum covers.
 
 \textbf{Exercise 7}
 
-Denote that this graph have $n$ vertices and $m$ edges.
+By observation we guess that the answer is $3^k$, and now try to prove it.
 
-The vertices maybe $2k$ or $2k+1$.
+First define some notations. Let $I(G)$ denote the set of maximum independent sets of graph G.
+ $i(G) = |I(G)|$, $I_{x}(G) = \{ S \in I(G) | x \in S \}$, $I_{-x}(G) = \{ S \in I(G) | x \notin S \} = L ( G\backslash \{ x \}  )$, $N(x) = \{ v | v = x or (v,x) \in E \}$, which means the neighbors of x and itself.
+ 
+Then proof a \textbf{Lemma} : $i(G) \leqslant i_{-x}(G) + i(G\backslash N(x))$. Consider that $I(G) = I_{x}(G) + I_{-x}{G}$, so $i(G) = i_{x}(G) + i_{-x}(G)$. And for any $S \in I_{x}(G)$ we can find a $S \backslash \{ x \}   \in I(G\backslash N(x))$, we have $i_{x}(G) \leqslant i(G\N(x))$. So lemma proved.
 
-So the answer may $3^k$.
+Next prove $i \leqslant 3^k$ is right for any graph, and do this by induction.
+
+Firstly, $k=1$, think the vertices connected to this edge are $x$ and $y$, and there is at most one vertex adjacent to both $x$ and $y$(or there is a greater matching). If not such vertex, then the minimum cover is 1 and $i(G)$ is 2(or less); If there i
+, then it's a triangle and $i(G) = 3$, both are less or equal to $3^1$.
+
+Then consider the $v(G) \geqslant 2$. Select any edge $(x,y) \in E$, we can get that $v(G\backslash N(x)) \leqslant v(G) - 1$, $v(G \backslash N(y)) \leqslant v(G) - 1$, $v(G \backslash \{ x,y \}) \leqslant v(G) - 1$.
+
+Therefore by induction we have $i(G\backslash N(x)) \leqslant 3^{v(G)-1}$, $i(G\backslash N(y)) \leqslant 3^{v(G) - 1}$ and $i(G \backslash  \{ x,y\}) \leqslant 3^{v(G} - 1$.
+
+Then by lemma,
+
+\begin{align*}
+    i(G) & \leqslant i_{-x}(G) + i(G \backslash N(x))\\
+    &= i(G \backslash  \{ x\} ) + i(G\backslash  N(x))\\
+    &\leqslant i_{y}(G\backslash \{ x \}) + i((G\backslash \{x\}) \backslash N(y) ) + i(G\backslash N(x))\\
+    &= i (G\backslash \{x, y\}) + i(G\backslash N(y)) + i(G\backslash N(x))\\
+    &\leqslant 3^{v(G) - 1} + 3^{v(G) - 1} + 3^{v(G) - 1}\\
+    & = 3^{v(G)}
+\end{align*}
+
+The equality satisfies when $G$ is the union of $v(G)$ triangles, so we finish the induction.
+
+Above all, we say that $f(k) = 3^k$ its possible and maximum upper bound.
+
+
+
+
 
 
 
