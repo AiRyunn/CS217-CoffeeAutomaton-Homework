@@ -26,11 +26,11 @@
 
 \textbf{Exercise 1}
 
-If there is not such a flow of value $k$, then there must be a cut S that V\backslash S of $c(S) < k$. Now consider where $r$ is.
+If there is not such a flow of value $k$, then there must be a cut S that V$\backslash$ S of $c(S) < k$. Now consider where $r$ is.
 
 If $r \in S$, then S, V separates $r$ and $t$. But there is a flow from $r$ to $t$ of value k, and flow is smaller than cut, so it's a contradiction.
 
-If $r \in V\S$ , similarly, separates $s$ and $r$ but there is a flow from $s$ to $r$ of value k, so it's a contradiction.
+If $r \in V\backslash S$ , similarly, separates $s$ and $r$ but there is a flow from $s$ to $r$ of value k, so it's a contradiction.
 
 Hence there is a flow of value $k$.
 
@@ -44,7 +44,7 @@ First prove that not both cases occur.
 
 If there are $k$ vertex disjoint paths $p_1 , ...,  p_k$ from $s$ to $t$, $k-1$ vertices can at most cut $k-1$ paths of them and at least 1 paths left. So we can't find vertices $v_1, ...v_{k-1}$ that $G - \{v_1, ...v_{k-1}\}$ contains no $s-t$ path.
 
-If there are $k-1$ vertices $v_1, ...v_{k-1} \in V \backslash \{ s,t \}$, then we at most recover $k-1$ vertex disjoint paths(but there may contain $k$ or more paths, but they must share some same vertices). So we can't find $k$ vertex disjoint paths from $s$ to $t$.
+If there are $k-1$ vertices $v_1, ...v_{k-1} \in V \backslash \{ s,t \}$, then we at most recover $k-1$ vertex disjoint paths(but there may contain $k$ or more paths, and they must share some same vertices). So we can't find $k$ vertex disjoint paths from $s$ to $t$.
 
 Then, we prove that it's impossible both cases not happen.
 
@@ -53,8 +53,7 @@ Assume that both not happen, it means that:
 1.There are $x$ vertex disjoint paths $p_1, ... , p_x$ from $s$ to $t$ with $x < k$(x can be zero).
 
 2.There are $y$ vertices $v_1,... v_y$ that $G - \{v_1, ...v_{y-1}\}$ contains not $s-t$ path with $y > k$.(we can remove all the vertices except $s$ and $t$)
-0
-Now for $x$ vertex disjoint paths, every path extract a vertex expect $s$ and $t$, and we get vertices $v_x1, ... , v_xx$ and they must differ from one another because they come from vertex disjoint paths. Now we remove them, and we get graph $G - \{v_x1, ...v_{xx}\}$ that has no vertex disjoint path, which means has no $s-t$ paths. Then we find a way to satisfy condition 2 with $x$ vertices, so it must be true that $x \geqslant y$. But it's against with the premise $x < k < y$, so contradiction. One of them must occur.
+Now for $x$ vertex disjoint paths, every path extract a vertex expect $s$ and $t$, and we get vertices $v_{x1}, ... , v_{xx}$ and they must differ from one another because they come from vertex disjoint paths. Now we remove them, and we get graph $G - \{v_{x1}, ...v_{xx}\}$ that has no vertex disjoint path, which means has no $s-t$ paths. Then we find a way to satisfy condition 2 with $x$ vertices, so it must be true that $x \geqslant y$. But it's against with the premise $x < k < y$, so contradiction. Which means one of them must occur.
 
 
 
@@ -64,7 +63,7 @@ First do some observation:
 
 1. For the vertex v, if it has $i$ 1 in its number, then it belongs $L_i$. So $L_i$ has $C_{n}^{i}$ vertices.
 
-2. There is an edge between $x_i$ and $x_{i+1}$ if and only if there is one difference in their numbers. So there is $n-i$ edges.
+2. There is an edge between $v_i$ and $v_{i+1}$ if and only if there is one difference in their numbers. So $v_i have $n-i$ edges to $L_{i+1}$.
 
 3. There is no edge in $L_{i}$.
 
@@ -115,28 +114,28 @@ $V = L_{i} \cup L_{i+1} \cup ... \cup L_{\frac{n}{2}} \cup ... \cup L_{n-i}  \cu
 
 $E = \{  (u,v) | u \in L_{i}, v \in L_{i+1} \}\cup ... \cup \{(s,u) | u \in L_{i} \} \cup \{(v,t) | v \in L_{n-i} \}$
 
-Think all edges from $s$ to $L_{i}$ have flow of value 1. Now consider the edges between $L_{i}$ and $L_{i+1}$, there are $n-i$ edges from $L_{i}$ to $L_{i+1}$ and $i+1$ edges from $L_{i+1}$ to $L_{i}$. So the flow is $\frac{i+1}{n-i} < 1$ in each edge. Because the arbitrariness of $i$, so all the edges from $L_{i}$ to $L_{\frac{n}{2} - 1}$. By symmetry and Menger’s Theorem, there are $C_{n}^{i}$ paths from $s$ to $t$ with no vertex shared except $s$ and $t$. And so there is $C_{n}^{i}$ paths satisfy the situation in this problem.
+Think all edges from $s$ to $L_{i}$ have flow of value 1. Now consider the edges between $L_{i}$ and $L_{i+1}$, there are $n-i$ edges from $L_{i}$ to $L_{i+1}$ and $i+1$ edges from $L_{i+1}$ to $L_{i}$. So the flow is $\frac{i+1}{n-i} < 1$ in each edge. Because the arbitrariness of $i$, so all the edges from $L_{i}$ to $L_{\frac{n}{2} - 1}$ have flow less than 1. By symmetry and Menger’s Theorem, there are $C_{n}^{i}$ paths from $s$ to $t$ with no vertex shared except $s$ and $t$. And so there is $C_{n}^{i}$ paths satisfy the situation in this problem.
 
 
 
 
 \textbf{Exercise 6}
 
-Because $v(G)$ is the size of a maximum matching of bipartite graph G, so there is at least $2v(G)$ vertices and $v(G) edges$, and the minimum cover size is $v(G)$, which is same as $v(G)$ parallel edges, we can choose one of two endpoints at every edge, so this graph has obviously $2^{v(G)}$ minimum vertex covers. If we add additional edges, then we add extra restrictions and we may not choose vertices optionally, and no more new covers because one of two endpoints of one edge must be chosen. So at most we have $2^{v(G)}$ minimum covers.
+Because $v(G)$ is the size of a maximum matching of bipartite graph G, so there is at least $2v(G)$ vertices and $v(G)$ edges, and the minimum cover size is $v(G)$, which is same as $v(G)$ parallel edges, we can choose one of two endpoints at every edge, so this graph has obviously $2^{v(G)}$ minimum vertex covers. If we add additional edges, then we add extra restrictions and we may not choose vertices optionally, and no more new covers because one of two endpoints of one edge must be chosen. So at most we have $2^{v(G)}$ minimum covers.
 
 \textbf{Exercise 7}
 
 By observation we guess that the answer is $3^k$, and now try to prove it.
 
 First define some notations. Let $I(G)$ denote the set of maximum independent sets of graph G.
- $i(G) = |I(G)|$, $I_{x}(G) = \{ S \in I(G) | x \in S \}$, $I_{-x}(G) = \{ S \in I(G) | x \notin S \} = L ( G\backslash \{ x \}  )$, $N(x) = \{ v | v = x or (v,x) \in E \}$, which means the neighbors of x and itself.
+ $i(G) = |I(G)|$, $I_{x}(G) = \{ S \in I(G) | x \in S \}$, $I_{-x}(G) = \{ S \in I(G) | x \notin S \} = I ( G\backslash \{ x \}  )$, $N(x) = \{ v | v = x \ or \ 
+ (v,x) \in E \}$, which means the neighbors of x and itself.
  
-Then proof a \textbf{Lemma} : $i(G) \leqslant i_{-x}(G) + i(G\backslash N(x))$. Consider that $I(G) = I_{x}(G) + I_{-x}{G}$, so $i(G) = i_{x}(G) + i_{-x}(G)$. And for any $S \in I_{x}(G)$ we can find a $S \backslash \{ x \}   \in I(G\backslash N(x))$, we have $i_{x}(G) \leqslant i(G\N(x))$. So lemma proved.
+Then proof a \textbf{Lemma} : $i(G) \leqslant i_{-x}(G) + i(G\backslash N(x))$. Consider that $I(G) = I_{x}(G) + I_{-x}{G}$, so $i(G) = i_{x}(G) + i_{-x}(G)$. And for any $S \in I_{x}(G)$ we can find a $S \backslash \{ x \}   \in I(G\backslash N(x))$, we have $i_{x}(G) \leqslant i(G\backslash N(x))$. So lemma proved.
 
 Next prove $i \leqslant 3^k$ is right for any graph, and do this by induction.
 
-Firstly, $k=1$, think the vertices connected to this edge are $x$ and $y$, and there is at most one vertex adjacent to both $x$ and $y$(or there is a greater matching). If not such vertex, then the minimum cover is 1 and $i(G)$ is 2(or less); If there i
-, then it's a triangle and $i(G) = 3$, both are less or equal to $3^1$.
+First step, $k=1$, think the vertices connected to this edge are $x$ and $y$, and there is at most one vertex adjacent to both $x$ and $y$(or there is a greater matching). If not such vertex, then the minimum cover is 1 and $i(G)$ is 2(or less); If there is, then it's a triangle and $i(G) = 3$, both are less or equal to $3^1$.
 
 Then consider the $v(G) \geqslant 2$. Select any edge $(x,y) \in E$, we can get that $v(G\backslash N(x)) \leqslant v(G) - 1$, $v(G \backslash N(y)) \leqslant v(G) - 1$, $v(G \backslash \{ x,y \}) \leqslant v(G) - 1$.
 
